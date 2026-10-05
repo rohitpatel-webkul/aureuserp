@@ -21,8 +21,5 @@ return [
         'no-quantities' => [
             'body' => 'Informe pelo menos uma quantidade diferente de zero.',
         ],
-        'excess-quantity' => [
-            'body' => 'A quantidade a devolver para :product não pode ser maior que a quantidade restante disponível para devolução (:quantity).',
-        ],
     ],
 ];

@@ -21,8 +21,5 @@ return [
         'no-quantities' => [
             'body' => 'Please specify at least one non-zero quantity.',
         ],
-        'excess-quantity' => [
-            'body' => 'The quantity to return for :product cannot be greater than the remaining returnable quantity (:quantity).',
-        ],
     ],
 ];

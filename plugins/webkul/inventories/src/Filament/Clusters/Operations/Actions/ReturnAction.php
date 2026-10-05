@@ -109,23 +109,6 @@ class ReturnAction extends Action
                     ]),
             ])
             ->action(function (Operation $record, array $data, Component $livewire): void {
-                $excess = collect($data['return_moves'] ?? [])
-                    ->first(fn ($row) => (float) $row['qty'] > (float) ($row['move_quantity'] ?? 0));
-
-                if ($excess) {
-                    Notification::make()
-                        ->warning()
-                        ->body(__('inventories::filament/clusters/operations/actions/return.notification.excess-quantity.body', [
-                            'product'  => $excess['product_name'] ?? '',
-                            'quantity' => (float) ($excess['move_quantity'] ?? 0),
-                        ]))
-                        ->send();
-
-                    $this->halt();
-
-                    return;
-                }
-
                 $moveQuantities = collect($data['return_moves'] ?? [])
                     ->filter(fn ($row) => (float) $row['qty'] > 0)
                     ->mapWithKeys(fn ($row) => [(int) $row['move_id'] => (float) $row['qty']])
