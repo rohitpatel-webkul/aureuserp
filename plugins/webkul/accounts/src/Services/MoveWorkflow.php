@@ -138,6 +138,8 @@ class MoveWorkflow
                     $line->update([
                         'balance'         => -$line->balance,
                         'amount_currency' => -$line->amount_currency,
+                        'debit'           => $line->credit,
+                        'credit'          => $line->debit,
                     ]);
                 }
             }
